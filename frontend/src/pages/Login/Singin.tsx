@@ -47,7 +47,9 @@ const Singin: React.FC = () => {
                     <Link to={Routes.REGISTRATION.path}> Create Account</Link>
                   </p>
                   <p className=" ml-5">
-                    <Link to={""}> Forget password ?</Link>
+                    <Link to={Routes.FORGETPASSWORD.path}>
+                      Forget password ?
+                    </Link>
                   </p>
                 </div>
                 <Form.Button color="facebook"> Sign in </Form.Button>
