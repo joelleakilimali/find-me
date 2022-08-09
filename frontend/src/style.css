@@ -9,4 +9,33 @@
   .bg-default {
     background-color: #f5f5f5;
   }
+  .menu {
+    width: 20%;
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 90vh;
+  }
+  .img {
+    border-radius: 50px;
+  }
+  .box {
+    width: 80%;
+    height: 100vh;
+  }
+  .hover-big:hover {
+    font-size: 25px;
+  }
+  .loader {
+    @apply flex fixed justify-center items-center top-0 left-0 h-full w-full bg-[#00000044] z-[1000] text-white text-3xl;
+  }
+  .spinner {
+    animation: spinner 1s linear infinite;
+  }
+  @keyframes spinner {
+    to {
+      transform: rotate(360deg);
+    }
+  }
 }

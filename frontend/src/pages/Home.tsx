@@ -20,9 +20,9 @@ const Home: React.FC = () => {
             <h2>Easy to use </h2>
           </p>
           <p>Find your lovely one by one post</p>
-          <Button color="facebook">
-            <Link to={Routes.REGISTRATION.path}>Create Account </Link>{" "}
-          </Button>
+          <Link to={Routes.SIGNIN.path}>
+            <Button color="facebook">Sign In</Button>
+          </Link>
         </div>
       </div>
     </div>

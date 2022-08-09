@@ -2,4 +2,24 @@ import Header from "./Header";
 import Footer from "./Footer";
 import NewPassword from "./NewPassword";
 import Forget from "./Forget";
-export { Header, Footer, NewPassword, Forget };
+import Postcomponent from "./Postcomponent";
+import Slidebar from "./Slidebar";
+import SecuredHeader from "./SecuredHeader";
+import LoaderComponent from "./Loader";
+import NotificationCard from "./NotificationCard";
+import DocumentTitle from "./DocumentTitle";
+import Notifications from "./Notifications";
+
+export {
+  Header,
+  Footer,
+  NewPassword,
+  Forget,
+  Postcomponent,
+  Slidebar,
+  SecuredHeader,
+  LoaderComponent,
+  NotificationCard,
+  DocumentTitle,
+  Notifications,
+};

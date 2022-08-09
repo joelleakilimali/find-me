@@ -1,19 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Button, Card, Divider, Form, Icon, Input } from "semantic-ui-react";
-import { Footer, Header } from "../../components";
-import { ISignin } from "../../interfaces";
+import { Divider, Form, Icon } from "semantic-ui-react";
+
 import { Routes } from "../../routes";
+import { Context } from "../../services/context";
 
 const Singin: React.FC = () => {
-  const info: ISignin = {
-    email: "",
-    password: "",
-  };
-  const [userInfo, setUserinfo] = useState<ISignin>(info);
+  const { Login, isLoading, userInfo, setUserinfo } = useContext(Context);
+
   return (
     <div className="flex flex-col min-h-screen justify-between">
-      <Header visible={false} />
       <div className=" h-[85vh] bg-[#F5F5F5] ">
         <div className="flex justify-between items-center px-72 pt-10">
           <div>
@@ -24,19 +20,19 @@ const Singin: React.FC = () => {
               <div className=" flex mb-10 justify-center items-center">
                 <Icon name="user" size="huge"></Icon>
               </div>
-              <Form>
+              <Form loading={isLoading}>
                 <Form.Input
-                  onChange={(e) => {
-                    setUserinfo({ ...userInfo, email: e.target.value });
-                  }}
+                  onChange={(e) =>
+                    setUserinfo({ ...userInfo, email: e.target.value })
+                  }
                   fluid
                   placeholder="Enter Email"
                   className="m-10 text-cyan-900"
                 />
                 <Form.Input
-                  onchange={(e: any) => {
-                    setUserinfo({ ...userInfo, password: e.target.value });
-                  }}
+                  onChange={(e: any) =>
+                    setUserinfo({ ...userInfo, password: e.target.value })
+                  }
                   placeholder=" Enter password"
                   className="m-10"
                   type="password"
@@ -52,7 +48,9 @@ const Singin: React.FC = () => {
                     </Link>
                   </p>
                 </div>
-                <Form.Button color="facebook"> Sign in </Form.Button>
+                <Form.Button color="facebook" onClick={Login}>
+                  Sign in
+                </Form.Button>
 
                 <Divider horizontal>Or</Divider>
                 <Form.Button
@@ -73,7 +71,6 @@ const Singin: React.FC = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -10,4 +10,7 @@ export const Routes = {
   FOOTER: { path: "/app/footer" },
   Notfound: { path: "/404" },
   FORGETPASSWORD: { path: "/app/login/forgetpassword" },
+  ACCOUNT_ACTIVATION: { path: "/account-activation/:token" },
+  ABOUTME: { path: "/app/profile/aboutme" },
+  COMMENTS: { path: "/app/Feed/comments" },
 };
