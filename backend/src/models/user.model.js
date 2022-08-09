@@ -3,15 +3,15 @@ const { Schema } = mongoose;
 
 const schema = new Schema(
   {
-    name: { type: String, required: false },
-    firstname: { type: String, required: false },
+    lastName: { type: String, required: false },
+    firstName: { type: String, required: false },
     gender: {
       type: String,
       required: false,
       enum: ["Male", "Female", "Other"],
     },
     address: { type: Object, required: false },
-    password: { type: String, required: false },
+    password: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     phoneNumber: { type: String, required: false },
     avatar: { type: Schema.Types.ObjectId, ref: "File", required: false },

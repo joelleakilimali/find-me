@@ -3,6 +3,7 @@ const {
   makeComment,
   findAllComment,
   findCommentById,
+  findCommentOfPost,
 } = require("../controllers/comment.controlle");
 const express = require("express");
 const route = express.Router();
@@ -12,7 +13,7 @@ const route = express.Router();
  * @method POST
  * @url /api/comments/
  */
-route.post("/createcomment", makeComment);
+route.post("/createcomment/:id", makeComment);
 
 /**
  * @description getting all comment
@@ -37,5 +38,13 @@ route.get("/getcommentById/:id", findCommentById);
  */
 
 route.put("/updatecomment/:id", updatedComment);
+
+/**
+ * @description  Get comments of a post
+ * @method Get
+ * @url /api/comments/findcomment/:id
+ */
+
+route.get("/findcommentOfPost/:id", findCommentOfPost);
 
 module.exports = route;

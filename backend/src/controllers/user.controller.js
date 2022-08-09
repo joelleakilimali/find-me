@@ -1,3 +1,5 @@
+const bcrypt = require("bcryptjs");
+
 const {
   createUser,
   getUserByEmail,
@@ -24,7 +26,6 @@ const makeUser = async (req, res) => {
 
   console.log("bodyEmail:", body.email);
   const user = await getUserByEmail(body.email);
-  console.log("--------->", user);
   if (user) {
     console.log("userEmail : ", user);
     return res
@@ -32,8 +33,13 @@ const makeUser = async (req, res) => {
       .json({ message: "Account with same email already in the system..." });
   }
 
-  new_user = await createUser(body);
-  return res.status(201).json({ data: user });
+  password = body.password;
+
+  const salt = await bcrypt.genSalt(10);
+  const hashed_password = await bcrypt.hash(password, salt);
+
+  new_user = await createUser({ ...body, password: hashed_password });
+  return res.status(200).json({ message: "user created", data: new_user });
 };
 const findAllUser = async (req, res) => {
   body = req.body;
@@ -52,13 +58,54 @@ const findUserById = async (req, res) => {
 const UpdatedUser = async (req, res) => {
   const body = req.body;
   const user_id = req.params.id;
+  if (!user_id) {
+    return res.status(400).json({ message: "id missing" });
+  }
+
+  if (body.password) {
+    const salt = await bcrypt.genSalt(10);
+    const hashed_password = await bcrypt.hash(req.body.password, salt);
+    body.password = hashed_password;
+  }
+
+  console.log(body);
+
+  const updatedUser = await updateUsers(user_id, body);
+  return res
+    .status(200)
+    .json({ data: updatedUser, message: "UPDATE SUCCSESSFULLY" });
+};
+
+const UpdatedUserhhh = async (req, res) => {
+  const body = req.body;
+  const user_id = req.params.id;
   console.log("user id : ", user_id);
   if (!user_id) {
-    return res.status(400).json({ message: "body is empty" });
+    return res.status(400).json({ message: "id missing" });
   }
-  const userUpdated = await updateUsers(user_id, body);
-  console.log("-------->", userUpdated);
-  return res.status(200).json({ data: userUpdated });
+
+  if (body) {
+    const userUpdated = await updateUsers(user_id, body);
+    return res.status(200).json({ message: "successs", data: userUpdated });
+  }
+};
+
+const ressetPassword = async (req, res) => {
+  const body = req.body;
+  const user_id = req.params.id;
+  console.log("user id : ", user_id);
+  if (!user_id) {
+    return res.status(400).json({ message: "id missing" });
+  }
+  if (req.body.password) {
+    const salt = await bcrypt.genSalt(10);
+    const hashed_password = await bcrypt.hash(req.body.password, salt);
+    const userUpdated = await updateUsers(user_id, {
+      ...body,
+      password: hashed_password,
+    });
+    return res.status(200).json({ message: "password resset" });
+  }
 };
 
 module.exports = {
@@ -66,4 +113,5 @@ module.exports = {
   findAllUser,
   findUserById,
   UpdatedUser,
+  ressetPassword,
 };

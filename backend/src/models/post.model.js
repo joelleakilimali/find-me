@@ -8,6 +8,8 @@ const schema = new Schema(
     comments: [
       { type: Schema.Types.ObjectId, ref: "Comment", required: false },
     ],
+    user: { type: Schema.Types.ObjectId, ref: "User", required: false },
+
     image: { type: Schema.Types.ObjectId, ref: "File", required: false },
     verified: { type: Boolean, required: false, default: false },
     status: { type: Number, required: false, default: 1 },

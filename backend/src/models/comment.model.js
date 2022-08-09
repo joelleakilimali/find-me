@@ -5,7 +5,7 @@ const schema = new Schema(
   {
     post: { type: Schema.Types.ObjectId, ref: "Post", required: false },
     user: { type: Schema.Types.ObjectId, ref: "User", required: false },
-    content: [{ type: String, required: false }],
+    content: { type: String, required: false },
     status: { type: Number, required: false, default: 1 },
   },
   {

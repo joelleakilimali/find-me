@@ -4,20 +4,21 @@ const {
   findAllPost,
   findPostById,
   updatedPost,
+  findCommentofPost,
 } = require("../controllers/post.controller");
 const route = express.Router();
 
 /**
  * @description create a post
  * @method POST
- * @url /api/users/
+ * @url /api/posts/
  */
-route.post("/createpost", makePost);
+route.post("/createpost/:id", makePost);
 
 /**
  * @description getting all pots
  * @method GET
- * @url /api/users/
+ * @url /api/posts/
  */
 
 route.get("/findAllPost", findAllPost);
@@ -25,7 +26,7 @@ route.get("/findAllPost", findAllPost);
 /**
  * @description get post by id
  * @method GET
- * @url /api/users/
+ * @url /api/posts/
  */
 
 route.get("/getPostById/:id", findPostById);
@@ -33,7 +34,7 @@ route.get("/getPostById/:id", findPostById);
 /**
  * @description update Post
  * @method put
- * @url /api/users/id
+ * @url /api/posts/id
  */
 
 route.put("/updatepost/:id", updatedPost);

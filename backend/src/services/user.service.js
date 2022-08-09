@@ -15,9 +15,10 @@ const getUserByEmail = async (mail) => {
 };
 
 const updateUsers = async (id, body) => {
-  const filter = { _id: id };
-  const update = body;
-  return await User.findOneAndUpdate(filter, update);
+  const user = await User.findById(id);
+  Object.assign(user, body);
+  await user.save();
+  return user;
 };
 module.exports = {
   createUser,

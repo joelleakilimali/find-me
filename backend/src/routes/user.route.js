@@ -5,7 +5,9 @@ const {
   findAllUser,
   findUserById,
   UpdatedUser,
+  ressetPassword,
 } = require("../controllers/user.controller");
+const securedRoute = require("../middleware/security");
 
 /**
  * @description create user
@@ -38,5 +40,13 @@ route.get("/getuserById/:id", findUserById);
  */
 
 route.put("/updateUser/:id", UpdatedUser);
+
+/**
+ * @description update userPssword
+ * @method put
+ * @url /api/users/id
+ */
+
+route.put("/ressetPassword/:id", ressetPassword);
 
 module.exports = route;

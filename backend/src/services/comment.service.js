@@ -14,9 +14,14 @@ const updateComment = async (id) => {
   const update = body;
   return await Comment.findOneAndUpdate(filter, update);
 };
+
+const getCommentOfPostById = async (postid) => {
+  return await Comment.find({ post: postid });
+};
 module.exports = {
   createComment,
   getAllComment,
   getCommentById,
   updateComment,
+  getCommentOfPostById,
 };
