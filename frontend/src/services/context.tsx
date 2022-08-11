@@ -43,7 +43,7 @@ const ContextProvider = ({ children }: any) => {
         setProfile(res?.data.find_user);
         setUserData(res?.data?.find_user);
         setToken(res?.data?.token);
-        history.replace(Routes.PROFILE.path);
+        history.replace(Routes.FEED.path);
       })
       .catch((e) => {
         console.log(e?.response?.data);

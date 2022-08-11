@@ -7,7 +7,7 @@ import {
   ABOUTMe,
   Activation,
   Chat,
-  Comments,
+  FeedDetaill,
   FeedPage,
   ForgetPasswordPage,
   Home,
@@ -41,8 +41,8 @@ const App = () => {
           <PrivateRoute exact path={Routes.ABOUTME.path} component={ABOUTMe} />
           <PrivateRoute
             exact
-            path={Routes.COMMENTS.path}
-            component={Comments}
+            path={Routes.FEED_DETAIL.path}
+            component={FeedDetaill}
           />
 
           <PublicRoute exact path={Routes.Notfound.path} component={Notfound} />

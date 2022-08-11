@@ -33,7 +33,7 @@ const Slidebar: React.FC = () => {
         <ul>
           <li className="hover-big my-2 flex items-center py-2 ml-5">
             <ImFeed />
-            <Link to={Routes.PROFILE.path} className="ml-3">
+            <Link to={Routes.FEED.path} className="ml-3">
               Actuality
             </Link>
           </li>

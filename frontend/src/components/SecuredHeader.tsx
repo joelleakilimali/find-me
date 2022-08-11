@@ -3,30 +3,23 @@ import { BsCameraFill } from "react-icons/bs";
 import { IoLocationSharp, IoNotificationsOutline } from "react-icons/io5";
 import { FiSettings } from "react-icons/fi";
 import { Input } from "semantic-ui-react";
+import { FaUserCircle } from "react-icons/fa";
 const SecuredHeader: React.FC = () => {
   return (
-    <div className=" p-2 bg-black opacity-70 text-white flex items-center justify-between">
-      <Fragment>
-        <div className="flex items-center mx-3">
-          <div></div>
-        </div>
-        <div
-          className=" mt-3 p-3 mx-3 rounded-lg w-[750px]
-        "
-        >
-          <Input
-            icon="search"
-            placeholder="make a quick research "
-            style={{ backgroundColor: "transparent" }}
-            fluid
-          />
-        </div>
-      </Fragment>
-      <Fragment>
-        <div className="flex items-center mr-10">
-          <IoNotificationsOutline size={40} />
-        </div>
-      </Fragment>
+    <div className="p-4 bg-black opacity-70 text-white flex items-center justify-between">
+      <div className="rounded-lg w-2/4">
+        <Input
+          icon="search"
+          placeholder="make a quick research "
+          style={{ backgroundColor: "transparent" }}
+          fluid
+          size="small"
+        />
+      </div>
+      <div className="flex items-center">
+        <IoNotificationsOutline size={25} />
+        <FaUserCircle size={25} className="ml-5" />
+      </div>
     </div>
   );
 };

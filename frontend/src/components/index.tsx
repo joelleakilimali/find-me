@@ -9,6 +9,7 @@ import LoaderComponent from "./Loader";
 import NotificationCard from "./NotificationCard";
 import DocumentTitle from "./DocumentTitle";
 import Notifications from "./Notifications";
+import NodataIndication from "./NodataIndication";
 
 export {
   Header,
@@ -22,4 +23,5 @@ export {
   NotificationCard,
   DocumentTitle,
   Notifications,
+  NodataIndication,
 };

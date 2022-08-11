@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Button, Divider, Form, Icon } from "semantic-ui-react";
 import { Notifications } from "../../components";
 import { BASE_URL } from "../../Config";
@@ -17,15 +17,21 @@ const Registration: React.FC = () => {
   };
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const history = useHistory();
 
   const createUser = async () => {
-    console.log(body);
     setIsLoading(true);
     await axios
       .post(`${BASE_URL}/auth/register`, body)
       .then((res) => {
         setIsLoading(false);
-        console.log(res);
+        Notifications(
+          "success",
+          "Your Account has been created , check your email for confirmation",
+          7000,
+          "top-right"
+        );
+        history.replace(Routes.HOME.path);
       })
       .catch((e) => {
         console.log(e?.response?.data);

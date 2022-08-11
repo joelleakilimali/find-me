@@ -9,7 +9,7 @@ import Notfound from "./Notfound";
 import ForgetPasswordPage from "./Login/ForgetPassword";
 import Activation from "./Activation";
 import ABOUTMe from "./User/ABOUTMe";
-import Comments from "./Feed/Comments";
+import FeedDetaill from "./Feed/Details";
 export {
   Home,
   Registration,
@@ -22,5 +22,5 @@ export {
   ForgetPasswordPage,
   Activation,
   ABOUTMe,
-  Comments,
+  FeedDetaill,
 };

@@ -24,9 +24,26 @@ export interface iUser {
   verified?: boolean;
   password?: string;
 }
-export interface CommentElement {
-  image?: string;
-  title?: string;
-  description?: string;
-  comment?: string;
+export interface IComment {
+  id?: string;
+  user?: iUser;
+  content: string;
+  post?: string;
+  createdAt?: string;
+  updatedAt?: string;
+}
+export interface IPost {
+  id?: string;
+  image: IImage;
+  title: string;
+  description: string;
+  user?: iUser;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+export interface IImage {
+  _id: string;
+  key: string;
+  path: string;
 }
